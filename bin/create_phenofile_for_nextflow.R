@@ -22,17 +22,15 @@ parser$add_argument("--plinksetFam",
 # Parse the arguments passed to the script
 args <- parser$parse_args()
 
-#dap_data <- read_tsv("survey_data/scaled_cleaned_DAP2022_baseline_survey_20231219.tsv")
 dap_datafile <- args$dataframe
 dap_geneticfile <- args$plinksetFam
 
 dap_data <- read_tsv(dap_datafile)
-dap_data_test <- dap_data[,1:3]
  
 # directly use fam file to get genotyped dog IDs
 # second column of fam file contains the genotyped dog IDs (IIDs) while the first column contains FIDs set in the plinkset
 DAP_sequenced_dogs_fam <- read.table(dap_geneticfile, header = FALSE, col.names = c("FID", "IID", "father_id", "mother_id", "sex", "pheno"))
-#DAP_sequenced_dogs_fam <- read.table("genetic_data/DogAgingProject_gp-0.70_biallelic-snps_N-6358.fam", header = FALSE, col.names = c("FID", "IID", "father_id", "mother_id", "sex", "pheno"))
+
 
 # create a dataframe of dog phenotypes for genotyped dogs only 
 dap_data_genotyped <- dap_data %>% filter(dog_id %in% DAP_sequenced_dogs_fam$IID)
@@ -58,7 +56,7 @@ extract_pheno <- function(pheno_variable){
   
 }
 
-for (pheno in colnames(dap_data_test)) {
+for (pheno in colnames(dap_data)) {
   if (pheno != "dog_id"){
     extract_pheno(pheno)
   }
