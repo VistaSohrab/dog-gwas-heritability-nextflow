@@ -111,3 +111,4 @@ Each workflow run is unique to a specific discrete covariate and quantitative co
 --maf ${maf} --geno ${geno} --hwe ${hwe}
 ```
 
+With thanks to Kathleen Morrill (for Manhattan and qqplot R scripts) and Rob Bierman for useful discussion 
