@@ -112,3 +112,5 @@ Each workflow run is unique to a specific discrete covariate and quantitative co
 ```
 
 With thanks to Kathleen Morrill (for Manhattan and qqplot R scripts) and Rob Bierman for useful discussion 
+
+[![DOI](https://zenodo.org/badge/871261261.svg)](https://doi.org/10.5281/zenodo.15392358)
